@@ -6,15 +6,16 @@ $(function() {
 				newTotal += parseInt(items.total);
 			}
 
-			var amount = $('amount').val();
+			var amount = $('#amount').val();
 			if (amount) {
 				newTotal += parseInt(amount);
 			}
 
-			chrome.storage.sync.set({'total': newTotal});
+			chrome.storage.sync.set({'#total': newTotal});
 
-			$('total').text(newTotal);
+			$('#total').text(newTotal);
 			$('#amount').val('');
+			//alert("hihi")
 		})
 	})
 });
