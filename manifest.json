@@ -1,0 +1,12 @@
+{
+	"manifest_version": 2,
+
+	"name": "Slack Tracker",
+	"description": "A useful tracker to control how much you've slacked",
+	"version": "1.0",
+
+	"browser_action": {
+		"default_icon": "icon.png",
+		"default_popup": "popup.html"
+	}
+}
