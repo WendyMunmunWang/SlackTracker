@@ -4,7 +4,7 @@ $(function() {
 		$('#goal').text(items.goal);
 	})
 	$('#addAmount').click(function() {
-		chrome.storage.sync.get('total', function(items){
+		chrome.storage.sync.get(['total', 'goal'], function(items){
 			var newTotal = 0;
 			if (items.total) {
 				newTotal += parseInt(items.total);
@@ -19,7 +19,17 @@ $(function() {
 
 			$('#total').text(newTotal);
 			$('#amount').val('');
-			//alert("hihi")
+
+			if (newTotal >= items.goal) {
+				var opt = {
+					type: "basic",
+					title: "you just slacked!",
+					message: "You've been slacking for " + items.goal + "!",
+					iconUrl: "icon.png"
+				}
+			}
+
+			chrome.notifications.create('goalReached', opt, function(){ });
 		})
 	})
 });

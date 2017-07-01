@@ -13,6 +13,15 @@ $(function() {
     });
 
     $('#reset').click(function() {
-        chrome.storage.sync.set({'total': 0});
+        chrome.storage.sync.set({'total': 0}, function() {
+            var opt = {
+                type: "basic",
+                title: "Total reset!",
+                message: "total has been reset back to 0",
+                iconUrl: "icon.png"
+            }
+
+            chrome.noficiations.create('#reset', opt, function() { });
+        });
     })
 });
