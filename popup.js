@@ -16,7 +16,7 @@ $(function() {
 				newTotal = newTotal +  parseInt(amount);
 			}
 
-			chrome.storage.sync.set({'#total': newTotal});
+			chrome.storage.sync.set({'total': newTotal});
 
 			$('#total').text(newTotal);
 			$('#amount').val('');
